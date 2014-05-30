@@ -1,0 +1,24 @@
+{
+  "name": "grocery-list",
+  "description": "Greg's Grocery List Keeper Upper Thing",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "gulp-concat": "~2.2.0",
+    "gulp": "~3.6.2"
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gkurts/grocerylist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gkurts/grocerylist/issues"
+  },
+  "homepage": "https://github.com/gkurts/grocerylist"
+}

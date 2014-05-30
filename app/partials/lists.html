@@ -1,0 +1,33 @@
+<div class="row">
+<div class="col-md-8">
+    <section class="post" ng-repeat="list in lists">
+        <div>
+            <header class="post-header">
+                <h2 class="post-title"><a href="#" editable-text="list.title" onbeforesave="updateList(list._id, $data)">{{list.title}}</a> <a href ng-click="deleteList(list._id)"><span class="glyphicon glyphicon-remove"></span></a></h2>
+            </header>
+            <div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Quantity</th><th>Item</th><th></th>
+                    <tr ng-repeat="item in list.items">
+                    <td style="width:40px"><a href="#" editable-number="item.qty" required onbeforesave="changeQty(list._id, item._id, $data)">{{item.qty}}</a></td>
+                    <td><a href="#" editable-text="item.itemName" required onbeforesave="updateItem(list._id, item, $data)">{{ item.itemName }}</a></td>
+                    <td><a href ng-click="deleteItem(list._id, item)"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <form ng-submit="addItem(list._id)">
+                    <input type="text" placeholder="Add item..." ng-model="list.itemtext"/>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <form ng-submit="createList(newlist)">
+            <input type="text" ng-model="newlist" placeholder="Add list..."/>
+        </form>
+    </div>
+</div>
+</div>
