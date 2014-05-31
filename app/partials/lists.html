@@ -12,7 +12,7 @@
                     <tr ng-repeat="item in list.items">
                     <td style="width:40px"><a href="#" editable-number="item.qty" required onbeforesave="changeQty(list._id, item._id, $data)">{{item.qty}}</a></td>
                     <td><a href="#" editable-text="item.itemName" required onbeforesave="updateItem(list._id, item, $data)">{{ item.itemName }}</a></td>
-                    <td><a href ng-click="deleteItem(list._id, item)"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+                    <td style="width:80px"><a href ng-click="deleteItem(list._id, item)"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
                     </tr>
                 </table>
             </div>
