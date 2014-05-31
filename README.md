@@ -1,6 +1,5 @@
 
-# H3
-This is only a playground for me while I experiment with Node.
+### This is only a playground for me while I experiment with Node.
 
 To do:
 * implement grunt for cleaning up, concatenating, uglifying, etc.
