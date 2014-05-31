@@ -143,6 +143,38 @@ exports.deleteItem = function(req, res){
 	
 };
 
+exports.gotItem = function(req, res){
+	var listId = req.params.id;
+	var itemId = req.params.itemId;
+
+	console.log('got: ');
+	console.log(listId);
+	console.log(itemId);
+
+	if (listId == null || listId == "" || itemId == null || itemId == ""){
+		res.send(400);
+	}
+
+	//todo: this feels wrong. Need to find an easy way to just toggle the 'got' field value.
+	db.listModel.findOne({_id: listId, "items._id": itemId}, { 'items.$' : 1}, function(err, item){
+		console.log(item);
+		var got = item.items[0].got;
+
+		db.listModel.update({_id: listId, "items._id": itemId }, {$set : {
+			'items.$.got' : !got,
+			'items.$.updated' : new Date()
+		}}, function(err, nbRows, raw){
+			if (err){
+				console.log(err);
+				return res.send(400);
+			}
+
+			return res.send(200);
+		});
+	});
+	
+};
+
 exports.updateItem = function(req, res){
 	var listId = req.params.id;
 	var itemId = req.params.itemId;

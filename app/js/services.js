@@ -31,6 +31,10 @@ appServices.factory('listService', function($http) {
 
         deleteItem: function(listId, itemId){
             return $http.post(options.api.base_url + '/lists/' + listId + '/items/' + itemId + '/delete');
+        },
+
+        gotItem: function(listId, itemId){
+            return $http.post(options.api.base_url + '/lists/' + listId + '/items/' + itemId + '/got');
         }
 
         // findByTag: function(tag) {

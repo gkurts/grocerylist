@@ -45,6 +45,24 @@ appControllers.controller('listController', ['$scope', 'listService',
             });
         };
 
+        $scope.gotItem = function(listId, itemId){
+            listService.gotItem(listId, itemId).success(function(data){
+                console.log(data);
+                _.each($scope.lists, function(list, i){
+                    if (list._id == listId){
+                        _.each(list.items, function(item, j){
+                            if (item._id == itemId){
+                                item.got = !item.got;
+                            }
+                        });
+                    }
+                });
+            }).error(function(data, status){
+                console.log(status);
+                console.log(data); 
+            });
+        };
+
         $scope.deleteItem = function(listId, item){
             if (confirm('Are you sure you want to delete this item?')){
                 listService.deleteItem(listId, item._id).success(function(data){

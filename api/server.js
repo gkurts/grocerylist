@@ -33,6 +33,7 @@ app.post('/lists/:id/items', routes.lists.addItem);
 app.post('/lists/:id/items/:itemId/update', routes.lists.updateItem);
 app.post('/lists/:id/items/:itemId/updateqty', routes.lists.changeQty);
 app.post('/lists/:id/items/:itemId/delete', routes.lists.deleteItem);
+app.post('/lists/:id/items/:itemId/got', routes.lists.gotItem);
 
 
 
